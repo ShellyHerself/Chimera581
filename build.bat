@@ -107,6 +107,8 @@ g++ -c client/interpolation/interpolation.cpp %ARGSFAST% -o bin/client__interpol
 g++ -c client/interpolation/particle.cpp %ARGSFAST% -o bin/client__interpolation__particle.o
 g++ -c client/interpolation/widget.cpp %ARGS% -o bin/client__interpolation__widget.o
 
+g++ -c client/netcode/netcode.cpp %ARGS% -o bin/client_netcode.o
+
 g++ -c client/lua/lua.cpp %ARGS% -o bin/client__lua__lua.o
 g++ -c client/lua/lua_callback.cpp %ARGS% -o bin/client__lua__lua_callback.o
 g++ -c client/lua/lua_game.cpp %ARGS% -o bin/client__lua__lua_game.o

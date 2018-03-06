@@ -52,6 +52,8 @@
 
 #include "interpolation/interpolation.h"
 
+#include "netcode/netcode.h"
+
 #include "lua/lua.h"
 
 #include "messaging/messaging.h"
@@ -364,6 +366,14 @@ void initialize_client() noexcept {
         "Syntax:\n"
         "  - chimera_interpolate_predict [0-2]"
     , 0, 1, find_interpolation_signatures(), true);
+
+    // Todo Netcode: Put netcode commands here
+
+    (*commands).emplace_back("chimera_netcode", netcode_command, "netcode",
+        "Get or set whether or not to use new network protocol.\n\n"
+        "Syntax:\n"
+        " - chimera_netcode [true/false]"
+        , 0, 1, find_netcode_signatures(), true);
 
     // Visuals
 

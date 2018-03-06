@@ -290,6 +290,12 @@ bool find_interpolation_signatures() noexcept {
     set_result
 }
 
+bool find_netcode_signatures() noexcept {
+    check_result
+    //Todo Netcode: Put signatures here
+    set_result
+}
+
 bool find_uncap_cinematic_signatures() noexcept {
     check_result
 

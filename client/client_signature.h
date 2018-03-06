@@ -16,6 +16,7 @@ ChimeraSignature &get_signature(const char *name) noexcept;
 
 bool find_required_signatures() noexcept;
 bool find_interpolation_signatures() noexcept;
+bool find_netcode_signatures() noexcept;
 bool find_uncap_cinematic_signatures() noexcept;
 bool find_magnetism_signatures() noexcept;
 bool find_auto_center_signature() noexcept;
