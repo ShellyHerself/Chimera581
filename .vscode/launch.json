@@ -16,7 +16,6 @@
             "externalConsole": true,
             "MIMode": "gdb",
             "miDebuggerPath": "C:/WinBuilds/bin/gdb.exe",
-            "preLaunchTask": "build chimera",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
