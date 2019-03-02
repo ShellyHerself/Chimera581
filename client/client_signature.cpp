@@ -287,6 +287,9 @@ bool find_interpolation_signatures() noexcept {
     const short camera_change_sig[] = { 0xD9, 0x04, 0x28, 0xD8, 0x04, 0x18, 0xD9, 0x1C, 0x18 };
     add_signature_s2(camera_change_sig);
 
+    const short bsp_index_sig[] = { -1, -1, -1, -1, 0xC1, 0xE1, 0x05, 0x8D, 0x4C, 0x11, 0x01, 0x8B, 0x15};
+    add_signature_s2(bsp_index_sig);
+
     set_result
 }
 

@@ -193,7 +193,7 @@ static void reset() noexcept {
     nuked = true;
 }
 
-short *current_bsp_index = (short *)0x6397D0;
+static short* current_bsp_index = nullptr;
 static short previous_bsp_index = -1;
 
 static void compare_bsp_index() noexcept {
@@ -239,6 +239,7 @@ ChimeraCommandError interpolate_command(size_t argc, const char **argv) noexcept
         auto &camera_change_s = get_signature("camera_change_sig");
         auto &fp_interp_s = get_signature("fp_interp_sig");
         auto &do_reset_particle_s = get_signature("do_reset_particle_sig");
+        auto &bsp_index_s = get_signature("bsp_index_sig");
         nav_point_address = reinterpret_cast<event_no_args>(get_signature("nav_point_sig").address());
 
         static bool initialized = false;
@@ -298,6 +299,7 @@ ChimeraCommandError interpolate_command(size_t argc, const char **argv) noexcept
             memset(objects_buffer_1,0,sizeof(objects_buffer_1));
 
             camera_tick_rate = *reinterpret_cast<float **>(camera_tick_rate_s.address() + 2);
+            current_bsp_index = *reinterpret_cast<short **>(bsp_index_s.address());
 
             static BasicCodecave do_reset_particle_code;
             write_jmp_call(do_reset_particle_s.address(), reinterpret_cast<void *>(on_particle_physics_before), reinterpret_cast<void *>(on_particle_physics_after), do_reset_particle_code);
