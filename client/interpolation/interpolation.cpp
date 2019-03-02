@@ -193,6 +193,16 @@ static void reset() noexcept {
     nuked = true;
 }
 
+short *current_bsp_index = (short *)0x6397D0;
+static short previous_bsp_index = -1;
+
+static void compare_bsp_index() noexcept {
+    if (*current_bsp_index != previous_bsp_index) {
+        reset();
+    }
+    previous_bsp_index = *current_bsp_index;
+}
+
 static void rollback_interpolation() noexcept {
     if(tick_count() == 0) return;
     if(chimera_interpolate_setting >= 1) rollback_widget_interpolation();
@@ -294,6 +304,8 @@ ChimeraCommandError interpolate_command(size_t argc, const char **argv) noexcept
 
             static BasicCodecave fp_code;
             write_jmp_call(fp_interp_s.address(), reinterpret_cast<void *>(fp_before), reinterpret_cast<void *>(fp_after), fp_code);
+
+            add_preframe_event(compare_bsp_index);
 
             add_pretick_event(unset_camera_change);
             add_tick_event(reset);
