@@ -1,8 +1,8 @@
 #include "math/data_types.h"
 
-#define CHIMERA_AUTHOR "Kavawuvi ^v^"
+#define CHIMERA_AUTHOR "Kavawuvi ^v^ & gbMichelle"
 #define CHIMERA_BUILD_NUMBER 50
-#define CHIMERA_ALPHA_VERSION -572
+#define CHIMERA_ALPHA_VERSION -580
 #define CHIMERA_LUA_INTERPRETER 2.042
 
 #ifdef CHIMERA_ALPHA_VERSION
